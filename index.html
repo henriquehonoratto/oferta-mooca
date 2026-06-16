@@ -9,136 +9,179 @@
     body {
       font-family: Arial, sans-serif;
       background: #e8f4f8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       min-height: 100vh;
-      padding: 24px;
+      padding: 20px;
     }
     .card {
       background: white;
       border-radius: 16px;
-      padding: 36px 28px;
-      max-width: 400px;
-      width: 100%;
+      padding: 28px 22px;
+      max-width: 420px;
+      margin: 0 auto;
       box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-      text-align: center;
     }
-    .icon { font-size: 52px; margin-bottom: 16px; }
-    h1 { font-size: 22px; color: #1a3c5e; margin-bottom: 8px; }
-    .subtitle { color: #555; font-size: 15px; margin-bottom: 28px; line-height: 1.5; }
-    .btn {
+    .header { text-align: center; margin-bottom: 24px; }
+    .icon { font-size: 44px; margin-bottom: 10px; }
+    h1 { font-size: 20px; color: #1a3c5e; margin-bottom: 6px; }
+    .subtitle { color: #666; font-size: 14px; line-height: 1.5; }
+
+    .btn-main {
+      display: block;
       background: #2e7d9b;
       color: white;
       border: none;
       border-radius: 10px;
-      padding: 16px 24px;
+      padding: 16px;
       font-size: 17px;
       font-weight: bold;
       width: 100%;
       cursor: pointer;
-      transition: background 0.2s;
+      text-align: center;
+      text-decoration: none;
+      margin-bottom: 28px;
     }
-    .btn:active { background: #245f7a; }
-    .status {
-      margin-top: 20px;
+
+    .steps-title {
       font-size: 13px;
+      font-weight: bold;
       color: #888;
-      min-height: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      text-align: center;
     }
-    .spinner {
-      display: none;
-      margin: 16px auto 0;
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 16px;
+      padding: 14px;
+      border-radius: 10px;
+      background: #f7fbfd;
+      border: 1.5px solid #d0eaf5;
+    }
+    .step-num {
+      background: #2e7d9b;
+      color: white;
+      border-radius: 50%;
       width: 30px;
       height: 30px;
-      border: 3px solid #ddd;
-      border-top-color: #2e7d9b;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
+      min-width: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 15px;
     }
-    @keyframes spin { to { transform: rotate(360deg); } }
+    .step-text { font-size: 14px; color: #333; line-height: 1.5; }
+    .step-text strong { color: #1a3c5e; }
+
+    .arrow {
+      text-align: center;
+      font-size: 22px;
+      color: #2e7d9b;
+      margin: -6px 0 10px;
+      animation: bounce 1s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(4px); }
+    }
+
+    .mockup {
+      background: #f0f7fa;
+      border-radius: 10px;
+      border: 1.5px solid #cce3ef;
+      padding: 12px 14px;
+      margin-top: 8px;
+    }
+    .mockup-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 9px 0;
+      border-bottom: 1px solid #ddeef5;
+      font-size: 14px;
+      color: #333;
+    }
+    .mockup-row:last-child { border-bottom: none; }
+    .mockup-row.highlight {
+      color: #2e7d9b;
+      font-weight: bold;
+      background: #e0f3fb;
+      border-radius: 6px;
+      padding: 9px 8px;
+      margin: 0 -4px;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { background: #e0f3fb; }
+      50% { background: #c5e8f7; }
+    }
+    .plus { font-size: 18px; color: #2e7d9b; }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 12px;
+      color: #aaa;
+    }
   </style>
 </head>
 <body>
   <div class="card">
-    <div class="icon">⛪</div>
-    <h1>Comunidade Adventista da Mooca</h1>
-    <p class="subtitle">Toque no botão abaixo para realizar sua oferta diretamente para a Comunidade Adventista da Mooca.</p>
-    <button class="btn" id="btn" onclick="iniciar()">Fazer Oferta</button>
-    <div class="spinner" id="spinner"></div>
-    <div class="status" id="status"></div>
+    <div class="header">
+      <div class="icon">⛪</div>
+      <h1>Comunidade Adventista da Mooca</h1>
+      <p class="subtitle">Toque no botão abaixo e siga os 2 passos simples para fazer sua oferta.</p>
+    </div>
+
+    <a class="btn-main" href="https://giving.7me.app/guest-donation/church/9c0bce82-d272-469b-84fd-8e79d489864a" target="_blank">
+      🙏 Acessar Sistema de Ofertas
+    </a>
+
+    <div class="steps-title">Como chegar lá</div>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text">
+        Toque no <strong>+</strong> ao lado de <strong>"Outras Ofertas"</strong>
+        <div class="mockup" style="margin-top:10px;">
+          <div class="mockup-row"><span>Dízimo</span><span>R$ 0,00</span></div>
+          <div class="mockup-row"><span>Oferta / Pacto</span><span>R$ 0,00</span></div>
+          <div class="mockup-row highlight"><span>Outras Ofertas</span><span class="plus">+</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text">
+        Toque em <strong>"Ofertas para a minha igreja"</strong>
+        <div class="mockup" style="margin-top:10px;">
+          <div class="mockup-row highlight"><span>Ofertas para a minha igreja</span><span>›</span></div>
+          <div class="mockup-row"><span>Eventos e outros</span><span>›</span></div>
+          <div class="mockup-row"><span>Outras ofertas</span><span>›</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow">↓</div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text">
+        Digite o valor em <strong>"Comunidade Adventista da Mooca"</strong> e conclua o pagamento.
+        <div class="mockup" style="margin-top:10px;">
+          <div class="mockup-row highlight"><span>COMUNIDADE ADVENTISTA DA MOOCA</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">IASD Fazenda da Juta</div>
   </div>
-
-  <script>
-    const URL_BASE = 'https://giving.7me.app/guest-donation/church/9c0bce82-d272-469b-84fd-8e79d489864a';
-
-    function setStatus(msg) {
-      document.getElementById('status').textContent = msg;
-    }
-
-    function iniciar() {
-      document.getElementById('btn').disabled = true;
-      document.getElementById('btn').textContent = 'Carregando...';
-      document.getElementById('spinner').style.display = 'block';
-      setStatus('Abrindo sistema de ofertas...');
-
-      // Cria iframe invisível para tentar acessar o DOM
-      const iframe = document.createElement('iframe');
-      iframe.src = URL_BASE;
-      iframe.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;border:none;z-index:9999;';
-      iframe.id = 'frame7me';
-      document.body.appendChild(iframe);
-
-      document.getElementById('btn').style.display = 'none';
-      document.querySelector('.card').style.display = 'none';
-
-      let tentativa = 0;
-      const MAX = 20;
-
-      const loop = setInterval(() => {
-        tentativa++;
-        try {
-          const doc = iframe.contentDocument || iframe.contentWindow.document;
-          if (!doc || !doc.body || doc.body.innerHTML.length < 100) return;
-
-          // Passo 1: abrir "Outras Ofertas"
-          let clicouOutras = false;
-          const categoryTitles = doc.querySelectorAll('span.category-title');
-          categoryTitles.forEach(el => {
-            if (el.innerText.trim() === 'Outras Ofertas') {
-              el.click();
-              clicouOutras = true;
-            }
-          });
-
-          if (!clicouOutras) return;
-
-          // Aguarda o submenu abrir e clica em "Ofertas para a minha igreja"
-          setTimeout(() => {
-            try {
-              const retangulos = doc.querySelectorAll('span.rectangle-text');
-              retangulos.forEach(el => {
-                if (el.innerText.trim() === 'Ofertas para a minha igreja') {
-                  el.click();
-                }
-              });
-            } catch(e) {}
-          }, 800);
-
-          clearInterval(loop);
-
-        } catch(e) {
-          // CORS bloqueou — redireciona direto
-          clearInterval(loop);
-          window.location.href = URL_BASE;
-        }
-
-        if (tentativa >= MAX) {
-          clearInterval(loop);
-          window.location.href = URL_BASE;
-        }
-      }, 500);
-    }
-  </script>
 </body>
 </html>
